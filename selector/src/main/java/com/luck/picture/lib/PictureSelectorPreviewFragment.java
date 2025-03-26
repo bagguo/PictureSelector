@@ -68,6 +68,7 @@ import com.luck.picture.lib.style.PictureWindowAnimationStyle;
 import com.luck.picture.lib.style.SelectMainStyle;
 import com.luck.picture.lib.utils.ActivityCompatHelper;
 import com.luck.picture.lib.utils.DensityUtil;
+import com.luck.picture.lib.utils.DisplayUtil;
 import com.luck.picture.lib.utils.DownloadFileUtils;
 import com.luck.picture.lib.utils.MediaUtils;
 import com.luck.picture.lib.utils.SdkVersionUtils;
@@ -179,7 +180,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
      * 内部预览
      *
      * @param isBottomPreview 是否顶部预览进来的
-     * @param currentAlbum    当前预览的目录
+     * @param currentAlbumName    当前预览的目录
      * @param isShowCamera    是否有显示拍照图标
      * @param position        预览下标
      * @param totalNum        当前预览总数
@@ -246,7 +247,8 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
         super.onViewCreated(view, savedInstanceState);
         reStartSavedInstance(savedInstanceState);
         isSaveInstanceState = savedInstanceState != null;
-        screenWidth = DensityUtil.getRealScreenWidth(getContext());
+        // 将width设为Screen Width的地方改为 match_patch 或 DisplayUtil.getDisplayWidth()
+        screenWidth = DisplayUtil.getDisplayWidth();
         screenHeight = DensityUtil.getScreenHeight(getContext());
         titleBar = view.findViewById(R.id.title_bar);
         tvSelected = view.findViewById(R.id.ps_tv_selected);

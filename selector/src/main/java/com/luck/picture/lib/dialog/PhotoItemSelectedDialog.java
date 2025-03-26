@@ -19,7 +19,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.luck.picture.lib.R;
 import com.luck.picture.lib.interfaces.OnItemClickListener;
-import com.luck.picture.lib.utils.DensityUtil;
 
 /**
  * @author：luck
@@ -27,6 +26,7 @@ import com.luck.picture.lib.utils.DensityUtil;
  * @describe：PhotoSelectedDialog
  */
 public class PhotoItemSelectedDialog extends DialogFragment implements View.OnClickListener {
+    private static final String TAG = PhotoItemSelectedDialog.class.getName();
     public static final int IMAGE_CAMERA = 0;
     public static final int VIDEO_CAMERA = 1;
     private boolean isCancel = true;
@@ -73,7 +73,8 @@ public class PhotoItemSelectedDialog extends DialogFragment implements View.OnCl
         if (dialog != null) {
             Window window = dialog.getWindow();
             if (window != null) {
-                window.setLayout(DensityUtil.getRealScreenWidth(getContext()), RelativeLayout.LayoutParams.WRAP_CONTENT);
+                // width 改为MATCH_PARENT, 分屏场景下获取全屏宽度是错误的
+                window.setLayout(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 window.setGravity(Gravity.BOTTOM);
                 window.setWindowAnimations(R.style.PictureThemeDialogFragmentAnim);
             }

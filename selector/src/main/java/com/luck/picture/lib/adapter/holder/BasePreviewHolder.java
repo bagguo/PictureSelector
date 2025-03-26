@@ -17,6 +17,7 @@ import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.photoview.PhotoView;
 import com.luck.picture.lib.utils.BitmapUtils;
 import com.luck.picture.lib.utils.DensityUtil;
+import com.luck.picture.lib.utils.DisplayUtil;
 import com.luck.picture.lib.utils.MediaUtils;
 
 /**
@@ -60,7 +61,7 @@ public abstract class BasePreviewHolder extends RecyclerView.ViewHolder {
     public BasePreviewHolder(@NonNull View itemView) {
         super(itemView);
         this.selectorConfig = SelectorProviders.getInstance().getSelectorConfig();
-        this.screenWidth = DensityUtil.getRealScreenWidth(itemView.getContext());
+        this.screenWidth = DisplayUtil.getDisplayWidth();
         this.screenHeight = DensityUtil.getScreenHeight(itemView.getContext());
         this.screenAppInHeight = DensityUtil.getRealScreenHeight(itemView.getContext());
         this.coverImageView = itemView.findViewById(R.id.preview_image);

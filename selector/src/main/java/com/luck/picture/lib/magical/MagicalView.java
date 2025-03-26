@@ -23,6 +23,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.luck.picture.lib.config.SelectorConfig;
 import com.luck.picture.lib.config.SelectorProviders;
 import com.luck.picture.lib.utils.DensityUtil;
+import com.luck.picture.lib.utils.DisplayUtil;
 
 /**
  * @author：luck
@@ -70,12 +71,12 @@ public class MagicalView extends FrameLayout {
         appInScreenHeight = DensityUtil.getRealScreenHeight(getContext());
         getScreenSize();
         backgroundView = new View(context);
-        backgroundView.setLayoutParams(new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        backgroundView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         backgroundView.setAlpha(mAlpha);
         addView(backgroundView);
 
         contentLayout = new FrameLayout(context);
-        contentLayout.setLayoutParams(new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        contentLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         addView(contentLayout);
 
         magicalWrapper = new MagicalViewWrapper(contentLayout);
@@ -132,7 +133,7 @@ public class MagicalView extends FrameLayout {
      * getScreenSize
      */
     private void getScreenSize() {
-        screenWidth = DensityUtil.getRealScreenWidth(getContext());
+        screenWidth = DisplayUtil.getDisplayWidth();
         if (isPreviewFullScreenMode) {
             screenHeight = DensityUtil.getRealScreenHeight(getContext());
         } else {
