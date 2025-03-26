@@ -9,6 +9,14 @@ buildscript {
             url 'https://maven.google.com/'
             name 'Google'
         }
+
+        maven {
+            allowInsecureProtocol true
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven { url "https://jitpack.io" }
+
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.4.2'
@@ -27,6 +35,17 @@ allprojects {
             url 'https://maven.google.com/'
             name 'Google'
         }
+
+        maven {
+            allowInsecureProtocol true
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+
+        maven { url "https://jitpack.io" }
+        // maven { url 'http://developer.huawei.com/repo'} //如果需要使用华为推送HMS，则需要加上此句
+
+        // 富文本 https://github.com/zzhoujay/RichText 需要jcenter
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
     }
 }
 
