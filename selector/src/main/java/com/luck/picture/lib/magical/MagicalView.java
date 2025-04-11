@@ -133,7 +133,7 @@ public class MagicalView extends FrameLayout {
      * getScreenSize
      */
     private void getScreenSize() {
-        screenWidth = DisplayUtil.getDisplayWidth();
+        screenWidth = DisplayUtil.getDisplayWidth(getContext());
         if (isPreviewFullScreenMode) {
             screenHeight = DensityUtil.getRealScreenHeight(getContext());
         } else {

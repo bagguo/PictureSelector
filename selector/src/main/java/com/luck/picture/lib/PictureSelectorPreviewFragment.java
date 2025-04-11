@@ -248,7 +248,7 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
         reStartSavedInstance(savedInstanceState);
         isSaveInstanceState = savedInstanceState != null;
         // 将width设为Screen Width的地方改为 match_patch 或 DisplayUtil.getDisplayWidth()
-        screenWidth = DisplayUtil.getDisplayWidth();
+        screenWidth = DisplayUtil.getDisplayWidth(requireContext());
         screenHeight = DensityUtil.getScreenHeight(getContext());
         titleBar = view.findViewById(R.id.title_bar);
         tvSelected = view.findViewById(R.id.ps_tv_selected);

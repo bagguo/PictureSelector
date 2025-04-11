@@ -61,7 +61,7 @@ public abstract class BasePreviewHolder extends RecyclerView.ViewHolder {
     public BasePreviewHolder(@NonNull View itemView) {
         super(itemView);
         this.selectorConfig = SelectorProviders.getInstance().getSelectorConfig();
-        this.screenWidth = DisplayUtil.getDisplayWidth();
+        this.screenWidth = DisplayUtil.getDisplayWidth(itemView.getContext());
         this.screenHeight = DensityUtil.getScreenHeight(itemView.getContext());
         this.screenAppInHeight = DensityUtil.getRealScreenHeight(itemView.getContext());
         this.coverImageView = itemView.findViewById(R.id.preview_image);
